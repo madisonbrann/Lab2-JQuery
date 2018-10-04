@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel = "stylesheet" type="text/css" href="main.css">
+        <title>Chuck Norris Jokes</title>
+    </head>
+    <p>
+        Chuck Norris Jokes!
+        <br><br>
+        <img src="ChuckNorrisGodzilla.jpg"style="width:400px;height:225px;">
+    </p>
+    <p1>
+        Choose a Category
+        <br>
+        <br>
+        <br>
+        <input id="movieCategory" type ="submit" value="Movie">
+        <br><br>
+        <input id="celebrityCategory" type ="submit" value="Celebrity">
+        <br><br>
+        <input id="historyCategory" type ="submit" value="History">
+        <br><br>
+        <input id="careerCategory" type ="submit" value="Career">
+        <br><br>
+        <input id="moneyCategory" type ="submit" value="Money">
+        <br><br>
+        <input id="fashionCategory" type ="submit" value="Fashion">
+        <br><br>
+        <input id="politicalCategory" type ="submit" value="Political">
+    </p1>
+    
+    <body>
+        <p2></p2>
+  
+    <div style="text-align:center" "color:white" "background-color:purple">
+        
+        <div id="Spacemen"></div>
+        <br><br><br>
+        <input id="jokeButton" type ="submit" value="Chuck Norris Joke">
+        </div>
+    
+    </body>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+        var category = '';
+        $("#movieCategory").click(function(e){
+            category = 'movie';
+            $("#movieCategory").remove();
+        });
+        $("#celebrityCategory").click(function(e){
+            category = 'celebrity';
+            $("#celebrityCategory").remove();
+        });
+        $("#politicalCategory").click(function(e){
+            category = 'political';
+            $("#politicalCategory").remove();
+        });
+        $("#historyCategory").click(function(e){
+            category = 'history';
+            $("#historyCategory").remove();
+        });
+        $("#careerCategory").click(function(e){
+            category = 'career';
+            $("#careerCategory").remove();
+        });
+        $("#moneyCategory").click(function(e){
+            category = 'money';
+            $("#moneyCategory").remove();
+        });
+        $("#fashionCategory").click(function(e){
+            category = 'fashion';
+            $("#fashionCategory").remove();
+        });
+        $("#jokeButton").click(function(e){
+          if(category == '')
+          {
+              alert("Please choose a category");
+          }
+          $.getJSON('https://api.chucknorris.io/jokes/random?category=' + category, function(data) {
+            var joke = data ['value'];
+            $("#Spacemen").text(joke);
+          });
+});
+        </script>
+  
+</html>
